@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<html class="p-0 flex items-center justify-center h-screen">
+
+    <img id="Red_Tank_Image" src="Assets/Images/Player/tank_red.png" style="display: none;">
+    <img id="Blue_Tank_Image" src="Assets/Images/Player/tank_blue.png" style="display: none;">
+    <img id="Green_Tank_Image" src="Assets/Images/Player/tank_green.png" style="display: none;">
+    <img id="Dark_Tank_Image" src="Assets/Images//Player/tank_dark.png" style="display: none;">
+    <img id="Wood_Crate" src="Assets/Images/Map-Assets/crateWood.png" style="display: none">
+    <img id="Metal_Crate" src="Assets/Images/Map-Assets/crateMetal.png" style="display: none;">
+    <img id="Explosion_Image" src="Assets/Images/Player/explosion.png" style="display: none;">
+
+    <head>
+        <title>Tank Game by Ignatov, Stessel & Marx</title>
+    </head>
+    <body style="background-color: #24221d;">
+        <!--Menu Div-->
+        <div id="Menu_Div" class="select-none" style="visibility: visible;">
+            <p id="Game_Title" class="fixed leading-none font-bold text-center underline" style="font-family: consolas;">Tank Game</p>
+            <p id="Author" class="fixed leading-none font-bold text-gray-500 text-center" style="font-family: consolas;">by Ignatov, Stessel & Marx</p>
+            <button id="Play_Button" class="fixed leading-none bg-yellow-500 focus:outline-none hover:bg-yellow-600 rounded-2xl font-bold border-black" style="font-family: consolas;">Play</button>
+            <button id="Settings_Button" class="fixed leading-none bg-yellow-500 focus:outline-none hover:bg-yellow-600 rounded-2xl font-bold border-black" style="font-family: consolas;">Settings</button>
+        </div>
+        <!--Game-Div-1-->
+        <div id="Game_Div_1" class="select-none" style="visibility: hidden;">
+            <button id="Game_Div_1_Back_Button" class="fixed leading-none bg-yellow-500 focus:outline-none hover:bg-yellow-600 rounded-2xl font-bold border-black" style="font-family: consolas;">Back</button>
+            <button id="Game_Div_1_Next_Button" class="fixed leading-none bg-yellow-500 focus:outline-none hover:bg-yellow-600 rounded-2xl font-bold border-black" style="font-family: consolas;">Next</button>
+            <button id="Player_1_Blue_Tank_Button" class="fixed focus:outline-none bg-blue-400 bg-no-repeat bg-center"></button>
+            <button id="Player_1_Red_Tank_Button" class="fixed focus:outline-none bg-red-400 bg-no-repeat bg-center"></button>
+            <button id="Player_1_Green_Tank_Button" class="fixed focus:outline-none bg-green-400 bg-no-repeat bg-center"></button>
+            <button id="Player_1_Dark_Tank_Button" class="fixed focus:outline-none bg-gray-800 bg-no-repeat bg-center"></button>
+            <p id="VS_Text" class="fixed text-white font-bold text-center leading-none" style="font-family: consolas;">VS</p>
+            <img id="Player_1_img" class="fixed bg-cover bg-center border-2 border-black" style="background-size: 75%; background-repeat: no-repeat;">
+            <img id="Player_2_img" class="fixed bg-cover bg-center border-2 border-black" style="background-size: 75%; background-repeat: no-repeat;">
+            <button id="Player_2_Blue_Tank_Button" class="fixed focus:outline-none bg-blue-400 bg-no-repeat bg-center"></button>
+            <button id="Player_2_Red_Tank_Button" class="fixed focus:outline-none bg-red-400 bg-no-repeat bg-center"></button>
+            <button id="Player_2_Green_Tank_Button"  class="fixed focus:outline-none bg-green-400 bg-no-repeat bg-center"></button>
+            <button id="Player_2_Dark_Tank_Button"  class="fixed focus:outline-none bg-gray-800 bg-no-repeat bg-center"></button>
+        </div>
+        <!--Actual Game Div-->
+        <div id="Game_Div" class="select-none" style="visibility: hidden;">
+            <button id="Pause_Menu_Button" class="fixed bg-center focus:outline-none bg-white bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Pause.png);"></button>
+            <img id="Player_1_Tank_Img" class="fixed bg-center bg-no-repeat" style="background-size: 75%;"/>
+            <img id="Player_2_Tank_Img" class="fixed bg-center bg-no-repeat" style="background-size: 75%;"/>
+            <label id="Player_1_Health_Text" class="fixed text-white font-bold leading-none text-center" style="font-family: consolas;">100/100</label>
+            <label id="Player_2_Health_Text" class="fixed text-white font-bold leading-none text-center" style="font-family: consolas;">100/100</label>
+            <div id="Death_Div" style="visibility: hidden;">
+                <label id="Death_Screen_Text" class="fixed text-white font-bold leading-none text-center" style="font-family: consolas;"></label>
+                <button id="Continue_Button"class="fixed leading-none bg-yellow-500 focus:outline-none hover:bg-yellow-600 rounded-2xl font-bold border-black" style="font-family: consolas; visibility: hidden;">Continue</button>
+                <button id="Reload_Site_Button" class="fixed leading-none bg-yellow-500 focus:outline-none hover:bg-yellow-600 rounded-2xl font-bold border-black" style="font-family: consolas;">Menu</button>
+            </div>
+        </div>
+        <!--Settings Div-->
+        <div id="Settings_Div" class="select-none" style="visibility: hidden;">
+            <button id="Settings_Back_Button" class="fixed leading-none bg-yellow-500 focus:outline-none hover:bg-yellow-600 rounded-2xl font-bold border-black" style="font-family: consolas;">Back</button>
+            <button id="General_Settings_Button" class="fixed leading-none bg-yellow-500 focus:outline-none font-bold border-black" style="font-family: consolas;">General</button>
+            <button id="Audio_Settings_Button" class="fixed leading-none bg-yellow-500 focus:outline-none font-bold border-black" style="font-family: consolas;">Audio</button>
+            <button id="Controls_Settings_Button" class="fixed leading-none bg-yellow-500 focus:outline-none font-bold border-black" style="font-family: consolas;">Controls</button>
+            <label id="Settings_Title" class="fixed font-bold text-white leading-none" style="font-family: consolas;">Settings</label>
+            <!--Controls Settings-->
+            <div id="Controls_Settings_Div" class="select-none" style="visibility: hidden;">
+                <select class="fixed focus:outline-none font-bold leading-none" id="Player_Dropdown" style="font-family: consolas;">
+                    <option value="player_1">Player 1</option>
+                    <option value="player_2">Player 2</option>
+                </select>
+                <button id="Default_Controls_Button" class="fixed leading-none bg-gray-300 hover:bg-gray-400 focus:outline-none font-bold border-black" style="font-family: consolas;">Default</button>
+                <label id="Move_Forward_Controls_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Move Forward:</label>
+                <button id="Forward_Controls" class="fixed leading-none bg-gray-300 hover:bg-gray-400 focus:outline-none font-bold border-black" style="font-family: consolas;"></button>
+                <label id="Move_Backward_Controls_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Move Backward:</label>
+                <button id="Backward_Controls" class="fixed leading-none bg-gray-300 hover:bg-gray-400 focus:outline-none font-bold border-black" style="font-family: consolas;"></button>
+                <label id="Turn_Right_Controls_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Turn Right:</label>
+                <button id="Turn_Right_Controls" class="fixed leading-none bg-gray-300 hover:bg-gray-400 focus:outline-none font-bold border-black" style="font-family: consolas;"></button>
+                <label id="Turn_Left_Controls_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Turn Left:</label>
+                <button id="Turn_Left_Controls" class="fixed leading-none bg-gray-300 hover:bg-gray-400 focus:outline-none font-bold border-black" style="font-family: consolas;"></button>
+                <label id="Shoot_Controls_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Shoot:</label>
+                <button id="Shoot_Controls" class="fixed leading-none bg-gray-300 hover:bg-gray-400 focus:outline-none font-bold border-black" style="font-family: consolas;"></button>
+                <label class="fixed text-center leading-none font-bold text-white" style="font-family: consolas; visibility: hidden;" id="Controls_Feedback_Text"></label>
+            </div>
+            <!--Audio Settings-->
+            <div id="Audio_Settings_Div">
+                <!--Master Volume-->
+                <button id="Mute_Master_Volume_Button" class="fixed focus:outline-none bg-yellow-500 hover:bg-yellow-600 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Mute.png);"></button>
+                <label id="Master_Volume_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Master Volume:</label>
+                <button id="Test_Master_Volume_Button" class="fixed focus:outline-none bg-yellow-500 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Play.png);"></button>
+                <input id="Master_Volume_Input_Field" class="fixed text-center font-bold focus:outline-none" type="number" min="0" max="100">
+                <!--Music Volume-->
+                <label id="Music_Volume_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Music Volume:</label>
+                <button id="Test_Music_Volume_Button" class="fixed focus:outline-none bg-yellow-500 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Play.png);"></button>
+                <button id="Mute_Music_Volume_Button" class="fixed focus:outline-none bg-yellow-500 hover:bg-yellow-600 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Mute.png);"></button>
+                <input id="Music_Volume_Input_Field" class="fixed text-center font-bold focus:outline-none" type="number" min="0" max="100">
+                <!--Effect Volume-->
+                <button id="Mute_Effect_Volume_Button" class="fixed focus:outline-none bg-yellow-500 hover:bg-yellow-600 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Mute.png);"></button>
+                <label id="Effect_Volume_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">Effect Volume:</label>
+                <button id="Test_Effect_Volume_Button" class="fixed focus:outline-none bg-yellow-500 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Play.png);"></button>
+                <input id="Effect_Volume_Input_Field" class="fixed text-center font-bold focus:outline-none" type="number" min="0" max="100">
+                <!--UI Volume-->
+                <button id="Mute_UI_Volume_Button" class="fixed focus:outline-none bg-yellow-500 hover:bg-yellow-600 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Mute.png);"></button>
+                <label id="UI_Volume_Text" class="fixed leading-none font-bold text-white" style="font-family: consolas;">UI Volume:</label>
+                <button id="Test_UI_Volume_Button"  class="fixed focus:outline-none bg-yellow-500 bg-center bg-no-repeat" style="background-size: 80%; background-image: url(Assets/Images/UI/Play.png);"></button>
+                <input id="UI_Volume_Input_Field" class="fixed text-center font-bold focus:outline-none" type="number" min="0" max="100">
+            </div>
+            <!--General Settings-->
+            <div id="General_Settings_Div" class="select-none">
+                <label id="Fullscreen_Label" class="fixed leading-none text-white font-bold" style="font-family: consolas;">Fullscreen: </label>
+                <input id="Fullscreen_Checkbox" type="checkbox" class="fixed">
+            </div>
+        </div>
+        <canvas></canvas>
+    </body>
+</html>
+<script src="Assets/Scripts/Index.js"></script>
+<script src="Assets/Scripts/Menu.js"></script>
+<script src="Assets/Scripts/Game.js"></script>
