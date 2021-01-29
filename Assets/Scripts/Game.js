@@ -291,7 +291,7 @@ function draw_player(){
             player_2.x = last_x_2;
             player_2.y = last_y_2;
         }
-        if(player_2.x > ctx_width / 2 - 25 && player_2.x < ctx_width / 2 +25 +28 && player_2.y < ctx_height / 2 + 14+25 +25 && player_2.y > ctx_height / 2 - 14 -28 - 25){
+        if(player_2.x > ctx_width / 2 - 25 && player_2.x < ctx_width / 2 +25 +28 && player_2.y < ctx_height / 2 + 14 + 25 + 25 && player_2.y > ctx_height / 2 - 14 -28 - 25){
             player_2.x = last_x_2;
             player_2.y = last_y_2;
         }
@@ -417,14 +417,14 @@ function draw_GUI(){
 function draw_Healthbars(){
     ctx.beginPath();
     ctx.fillStyle = '#d60202';
-    ctx.rect(40, 5, 267, 27);
-    ctx.rect(350, 5, 267, 27);
+    ctx.rect(ctx_height * 0.105, ctx_height * 0.01, ctx_width / 2 - ctx_height * 0.16, ctx_height * 0.08);
+    ctx.rect(ctx_width / 2 + ctx_height * 0.055, ctx_height * 0.01, ctx_width / 2 - ctx_height * 0.16, ctx_height * 0.08);
     ctx.fill();
     ctx.closePath();
     ctx.beginPath();
     ctx.fillStyle = '#006e0b';
-    ctx.rect(40, 5, 267 * player_1.health / 100, 27);
-    ctx.rect(350, 5, 267 * player_2.health / 100, 27);
+    ctx.rect(ctx_height * 0.105, ctx_height * 0.01, (ctx_width / 2 - ctx_height * 0.16) * (player_1.health  / 100), ctx_height * 0.08);
+    ctx.rect(ctx_width / 2 + ctx_height * 0.055, ctx_height * 0.01, (ctx_width / 2 - ctx_height * 0.16) * player_2.health / 100, ctx_height * 0.08);
     ctx.fill();
     ctx.closePath();
 }
